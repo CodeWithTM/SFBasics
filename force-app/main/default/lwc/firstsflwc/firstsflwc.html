@@ -1,0 +1,55 @@
+<template>
+  <lightning-card>
+    <h1 class="sldx-text-align_center">MY LWC Compo</h1>
+    <img style="max-height: 200px; width:200px" alt="Image on T.O." src={profileImage}/><br/>
+    <c-childlwc></c-childlwc>
+    <lightning-button variant="brand" label="Brand" title="Looks like a link" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+    <h2>{lwcTitle}</h2>
+
+    <br/><br/>
+
+    <template if:true={Announcements.data}>
+        <template for:each={Announcements.data} for:item="Announcement__c">  
+            <!-- sets the style to none and the id to the value of  Announcement__c.Id-->
+            <span class={showMoreClass} key={Announcement__c.Id} style="display: none" id={Announcement__c.Id}>{Announcement__c.AnnouncementDescription__c}</span>
+            <!-- sets the id to the value of  Announcement__c.Id-->
+            <lightning-button  key={Announcement__c.Id} variant="brand" label={clickedButtonLabel} title="...more" onclick={handleClick} class="slds-m-left_x-small" id={Announcement__c.Id}></lightning-button>
+        </template> 
+    </template>
+
+    
+  </lightning-card>  
+
+
+  <!--<lightning-card title="Navigate To Record Example">
+    <lightning-button label="New Account" onclick={navigateToNewAccountPage}></lightning-button>
+    <lightning-button label="View Account" onclick={navigateToViewAccountPage}></lightning-button>
+    <lightning-button label="Edit Account" onclick={navigateToEditAccountPage}></lightning-button>
+  </lightning-card>-->
+  <lightning-card title="Event Date Picker">
+    <div style="margin: 5%;">
+
+      <lightning-input type="checkbox" label="All Day Event" checked={changeEventType} onchange={handleCheckboxChange}></lightning-input>
+ 
+      <br/>
+      <lightning-input
+        type={getType}
+        name="startDate"
+        label={startDateLabel}
+        value={startDate}
+        onchange={handleStartDateChange}
+      >
+      </lightning-input>
+
+      <lightning-input
+        type={getType}
+        name="endDate"
+        label={endDateLabel}
+        value={endDate}
+        onchange={handleEndDateChange}
+      >
+      </lightning-input>
+    </div>
+  </lightning-card>
+
+</template>

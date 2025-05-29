@@ -1,0 +1,6 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" >
+	<lightning:input type="number" name="myNumber" aura:id="num1" label="Number 1"/>
+    <br/>
+    
+    <c:firstsflwc></c:firstsflwc>
+</aura:component>

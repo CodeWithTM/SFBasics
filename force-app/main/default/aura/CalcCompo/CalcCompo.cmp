@@ -1,0 +1,24 @@
+<aura:component controller="AccountAuraController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="message" type="String" default="This is AURA app! - Account Manager" />
+    <aura:attribute name="accounts" type="Account[]" /> 
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <div class="slds-box slds-theme_default">
+    	<p class="slds-text-heading_large">{!v.message}</p>
+    </div>
+    <div>
+   	<lightning:card title="Account List" iconName="standard:account">
+        <aura:iteration items="{!v.accounts}" var="account">
+            <div class="slds-p-around_medium">
+                <p><strong>Name:</strong> {!account.Name}</p>
+                <p><strong>Industry:</strong> {!account.Industry}</p>
+                <p><strong>Phone:</strong> {!account.Phone}</p>
+                <hr/>
+            </div>
+            
+        </aura:iteration>
+        <aura:if isTrue="{!v.errorMessage}">
+            <p class="slds-text-color_error">{!v.errorMessage}</p>
+        </aura:if>
+    </lightning:card>
+    </div>
+</aura:component>
