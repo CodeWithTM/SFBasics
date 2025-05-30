@@ -5,7 +5,7 @@ global with sharing class YouTubeRestAPI {
     global static string doGet() {
         Http http = new Http();
         HttpRequest request = new HttpRequest();
-        request.setEndpoint('https://www.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=UCKORm8sxh3cheBpqs0akkhg%20&key=AIzaSyBzJHw_P9afx8k_yUeDLIjzWF-dDkizBVw');
+        request.setEndpoint('https://www.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=<ID>&key=<API_KEY>');
         request.setMethod('GET');
         
         HttpResponse response = http.send(request);
